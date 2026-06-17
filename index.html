@@ -1,14 +1,26 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Mengyao Zhu (朱梦尧) - Professor at Soochow University, specializing in Spatial Audio, Speech Enhancement, Microphone Array Processing, and Embodied Intelligence.">
-    <title>Mengyao Zhu · 朱梦尧 | 学术主页</title>
-    <!-- Google Fonts + Font Awesome -->
+    <meta name="description" content="Mengyao Zhu (朱梦尧) - Professor at Soochow University, specializing in spatial audio, speech enhancement, microphone array processing, audio coding, and audio AI.">
+    <title>Mengyao Zhu · 朱梦尧 | Academic Homepage</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        :root {
+            --ink: #162033;
+            --muted: #51617a;
+            --soft: #f5f7fb;
+            --panel: #ffffff;
+            --line: #e4ebf4;
+            --brand: #224e7a;
+            --brand-strong: #143956;
+            --accent: #0f766e;
+            --warm: #9a6a14;
+            --shadow: 0 14px 32px rgba(30, 55, 90, 0.08);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -17,465 +29,789 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f5f7fb;
-            color: #1e293b;
-            line-height: 1.5;
-            padding: 2rem 1rem;
+            background: linear-gradient(180deg, #f8fbff 0%, #eef4f8 100%);
+            color: var(--ink);
+            line-height: 1.55;
+            padding: 2rem 1rem 3rem;
+        }
+
+        a {
+            color: var(--brand);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1160px;
             margin: 0 auto;
-            background: white;
-            border-radius: 32px;
-            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
-            padding: 2rem 2rem 2.5rem;
         }
 
-        /* 头部区域 */
+        .topbar {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 1rem;
+        }
+
+        .language-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 0.25rem;
+            box-shadow: 0 8px 22px rgba(30, 55, 90, 0.06);
+        }
+
+        .language-toggle button {
+            border: 0;
+            background: transparent;
+            color: var(--muted);
+            font: inherit;
+            font-weight: 700;
+            font-size: 0.86rem;
+            line-height: 1;
+            border-radius: 6px;
+            padding: 0.55rem 0.75rem;
+            cursor: pointer;
+            min-width: 3.2rem;
+        }
+
+        .language-toggle button[aria-pressed="true"] {
+            color: #ffffff;
+            background: var(--brand);
+            box-shadow: 0 5px 14px rgba(34, 78, 122, 0.22);
+        }
+
         .hero {
-            text-align: center;
-            margin-bottom: 2.5rem;
-            border-bottom: 1px solid #e9edf2;
-            padding-bottom: 1.8rem;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+            align-items: start;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 0.7rem;
         }
 
         .hero h1 {
-            font-size: 2.6rem;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-            background: linear-gradient(135deg, #1e3c72, #2b4c7c);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            margin-bottom: 0.5rem;
+            font-size: clamp(2.1rem, 4vw, 3.5rem);
+            line-height: 1.08;
+            font-weight: 800;
+            color: var(--brand-strong);
+            margin-bottom: 0.55rem;
         }
 
-        .hero .subhead {
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: #2c3e66;
-            margin-bottom: 0.75rem;
-        }
-
-        .hero .affiliations {
-            font-size: 0.95rem;
-            color: #4a5b7a;
+        .subhead {
+            font-size: 1.12rem;
+            font-weight: 650;
+            color: #263b59;
             margin-bottom: 1rem;
-            background: #f0f4fa;
-            display: inline-block;
-            padding: 0.3rem 1rem;
-            border-radius: 40px;
+        }
+
+        .affiliations {
+            display: grid;
+            gap: 0.5rem;
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.05rem;
+        }
+
+        .affiliations span,
+        .contact-detail {
+            display: flex;
+            gap: 0.7rem;
+            align-items: flex-start;
+        }
+
+        .affiliations i,
+        .contact-detail i,
+        .section-title i,
+        .source-note i {
+            color: var(--brand);
+            width: 1.2rem;
+            text-align: center;
+            margin-top: 0.18rem;
+        }
+
+        .research-tagline {
+            border-left: 4px solid var(--accent);
+            background: #f2faf8;
+            border-radius: 8px;
+            padding: 0.95rem 1rem;
+            color: #233f4d;
+            font-size: 0.98rem;
         }
 
         .badge-group {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.75rem;
-            margin: 1.2rem 0 1rem;
+            gap: 0.6rem;
+            margin-top: 1.1rem;
         }
 
         .badge-link {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            background: #f0f2f5;
-            padding: 0.4rem 1rem;
-            border-radius: 40px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            text-decoration: none;
-            color: #1e293b;
-            transition: all 0.2s ease;
+            gap: 0.45rem;
+            border: 1px solid var(--line);
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 0.48rem 0.75rem;
+            font-size: 0.86rem;
+            font-weight: 700;
+            color: #1f3550;
+            box-shadow: 0 5px 16px rgba(30, 55, 90, 0.05);
         }
 
         .badge-link i {
-            font-size: 1rem;
+            color: var(--accent);
         }
 
-        .badge-link:hover {
-            background: #e2e8f0;
-            transform: translateY(-1px);
-        }
-
-        .research-tagline {
-            background: #f8fafc;
-            padding: 1rem 1.5rem;
-            border-radius: 28px;
-            font-size: 1rem;
-            color: #2d3a5e;
-            margin: 1rem 0 0;
-            border-left: 4px solid #2b4c7c;
-            text-align: left;
-            font-weight: 500;
-        }
-
-        /* 模块通用样式 */
         .section {
-            margin-top: 2.2rem;
+            margin-top: 1.65rem;
         }
 
         .section-title {
-            font-size: 1.6rem;
-            font-weight: 600;
-            margin-bottom: 1.2rem;
+            font-size: 1.42rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
-            gap: 10px;
-            border-left: 5px solid #2b4c7c;
-            padding-left: 1rem;
-            color: #0f2b3d;
+            gap: 0.65rem;
+            color: var(--brand-strong);
         }
 
-        .section-title i {
-            color: #2b4c7c;
-            font-size: 1.4rem;
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--line);
         }
 
-        .timeline-item, .exp-item {
-            display: flex;
-            flex-wrap: wrap;
+        .timeline {
+            display: grid;
+            gap: 0.8rem;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 150px minmax(0, 1fr);
             gap: 1rem;
-            margin-bottom: 1.2rem;
-            padding-bottom: 0.8rem;
-            border-bottom: 1px dashed #eef2f6;
+            background: rgba(255, 255, 255, 0.78);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 0.9rem 1rem;
         }
 
         .exp-year {
-            min-width: 140px;
-            font-weight: 600;
-            color: #2b4c7c;
-        }
-
-        .exp-desc {
-            flex: 1;
+            font-weight: 800;
+            color: var(--brand);
         }
 
         .exp-title {
-            font-weight: 700;
-            color: #0f2b3d;
+            display: block;
+            font-weight: 800;
+            color: #10273c;
         }
 
         .exp-org {
-            font-weight: 500;
-            color: #4a5b7a;
+            display: block;
+            color: var(--muted);
+            margin-top: 0.1rem;
         }
 
-        /* 研究领域网格 */
         .research-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.2rem;
-            margin-top: 0.5rem;
-        }
-
-        .research-card {
-            background: #f9fbfd;
-            border-radius: 20px;
-            padding: 1rem 1.2rem;
-            transition: all 0.2s;
-            border: 1px solid #eef2f8;
-        }
-
-        .research-card h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.6rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .research-card p {
-            font-size: 0.9rem;
-            color: #2d3a5e;
-            line-height: 1.45;
-        }
-
-        /* 出版物列表 */
-        .publication-list {
-            display: flex;
-            flex-direction: column;
+            grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
             gap: 1rem;
         }
 
-        .pub-item {
-            background: #ffffff;
-            border-radius: 18px;
-            padding: 1rem 1.2rem;
-            border: 1px solid #eef2f8;
-            transition: all 0.2s;
+        .research-card,
+        .pub-item,
+        .skills-block,
+        .contact-info {
+            background: rgba(255, 255, 255, 0.86);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(30, 55, 90, 0.04);
         }
 
-        .pub-item:hover {
-            border-color: #cddfe7;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        .research-card {
+            padding: 1rem;
+        }
+
+        .research-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            color: #10273c;
+            font-size: 1.02rem;
+            margin-bottom: 0.45rem;
+        }
+
+        .research-card h3 i {
+            color: var(--warm);
+        }
+
+        .research-card p {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .source-note {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.45rem;
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin: -0.2rem 0 0.85rem;
+        }
+
+        .publication-list {
+            display: grid;
+            gap: 0.85rem;
+        }
+
+        .pub-item {
+            padding: 1rem 1.1rem;
+        }
+
+        .pub-topline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.8rem;
+            margin-bottom: 0.55rem;
         }
 
         .pub-meta {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: #2b4c7c;
-            background: #eef3fc;
-            display: inline-block;
-            padding: 0.2rem 0.7rem;
-            border-radius: 30px;
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.3px;
-        }
-
-        .pub-title {
-            font-weight: 700;
-            font-size: 1rem;
-            margin-bottom: 0.3rem;
-            color: #0c2a3b;
-        }
-
-        .pub-authors {
-            font-size: 0.85rem;
-            color: #4b5568;
-            margin-bottom: 0.25rem;
-        }
-
-        .pub-venue {
-            font-size: 0.85rem;
-            font-style: italic;
-            color: #5b6e8c;
-            margin-bottom: 0.3rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            color: var(--brand);
+            background: #eef5fb;
+            border-radius: 8px;
+            padding: 0.26rem 0.6rem;
+            font-size: 0.76rem;
+            font-weight: 800;
         }
 
         .pub-cite {
-            font-size: 0.75rem;
-            background: #eef2f6;
-            display: inline-block;
-            padding: 0.2rem 0.7rem;
-            border-radius: 30px;
-            color: #2c3e50;
-            font-weight: 500;
+            white-space: nowrap;
+            color: #35516a;
+            background: #f1f4f7;
+            border-radius: 8px;
+            padding: 0.26rem 0.62rem;
+            font-size: 0.76rem;
+            font-weight: 800;
         }
 
-        /* 技能标签 */
+        .pub-title {
+            color: #10273c;
+            font-size: 0.98rem;
+            font-weight: 800;
+            margin-bottom: 0.35rem;
+        }
+
+        .pub-authors,
+        .pub-venue {
+            color: var(--muted);
+            font-size: 0.86rem;
+        }
+
+        .pub-venue {
+            font-style: italic;
+            margin-top: 0.18rem;
+        }
+
         .skills-block {
-            background: #fafcff;
-            border-radius: 24px;
-            padding: 1rem 1.2rem;
-            margin-top: 0.5rem;
+            padding: 1rem 1.1rem;
         }
-        .skill-category {
-            margin-bottom: 1.2rem;
+
+        .skill-category + .skill-category {
+            margin-top: 1rem;
         }
+
         .skill-category h4 {
-            font-weight: 600;
-            font-size: 1rem;
-            margin-bottom: 0.6rem;
-            color: #1e3a5f;
+            color: #173858;
+            font-size: 0.98rem;
+            font-weight: 800;
+            margin-bottom: 0.65rem;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 0.5rem;
         }
+
+        .skill-category h4 i {
+            color: var(--accent);
+        }
+
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
         }
+
         .skill-tag {
-            background: white;
-            border: 1px solid #dce5ef;
-            padding: 0.3rem 0.9rem;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            font-weight: 500;
+            border: 1px solid #dbe6ef;
+            background: #ffffff;
+            border-radius: 8px;
             color: #1f3b62;
-            transition: 0.1s;
+            font-size: 0.82rem;
+            font-weight: 700;
+            padding: 0.34rem 0.65rem;
         }
 
-        /* 联系区域 */
         .contact-info {
-            background: #f0f6fe;
-            border-radius: 28px;
-            padding: 1.2rem 1.5rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-            margin: 1.5rem 0 0.8rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 0.95rem;
+            padding: 1.05rem 1.1rem;
         }
+
         .contact-detail {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.95rem;
+            color: var(--muted);
+            font-size: 0.94rem;
         }
-        .contact-detail i {
-            width: 28px;
-            font-size: 1.2rem;
-            color: #2b4c7c;
-        }
+
         .contact-detail a {
-            text-decoration: none;
-            color: #1f3b62;
-            font-weight: 500;
-            border-bottom: 1px dotted #a0bbd9;
+            font-weight: 750;
         }
+
         .footer-note {
             text-align: center;
-            font-size: 0.75rem;
-            margin-top: 2rem;
-            padding-top: 1rem;
-            border-top: 1px solid #eef2f8;
-            color: #7c8ba0;
+            color: #6e7f94;
+            font-size: 0.78rem;
+            margin-top: 1.8rem;
         }
 
-        @media (max-width: 680px) {
-            .container {
-                padding: 1.2rem;
+        @media (max-width: 820px) {
+            body {
+                padding: 1rem 0.75rem 2rem;
             }
-            .hero h1 {
-                font-size: 1.9rem;
+
+            .hero {
+                padding: 1.25rem;
             }
-            .section-title {
-                font-size: 1.4rem;
+
+            .hero-grid {
+                grid-template-columns: 1fr;
             }
-            .exp-year {
-                min-width: 100%;
-                margin-bottom: 0.2rem;
-            }
+
             .timeline-item {
-                flex-direction: column;
-                gap: 0.2rem;
+                grid-template-columns: 1fr;
+                gap: 0.25rem;
             }
-            .contact-info {
-                flex-direction: column;
+        }
+
+        @media (max-width: 560px) {
+            .topbar {
+                justify-content: stretch;
+            }
+
+            .language-toggle,
+            .language-toggle button {
+                width: 100%;
+            }
+
+            .pub-topline {
                 align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .pub-cite {
+                white-space: normal;
             }
         }
     </style>
 </head>
 <body>
-<div class="container">
-    
-    <!-- 头部信息 -->
-    <div class="hero">
-        <h1>Mengyao Zhu · 朱梦尧</h1>
-        <div class="subhead">Professor · School of Future Science & Engineering, Soochow University</div>
-        <div class="affiliations">
-            <i class="fas fa-microphone-alt"></i> Co-Chair · Audio Standards Working Group, UHD World Alliance (UWA)<br>
-            <i class="fas fa-music"></i> Deputy Director · Sound and Music Technology Committee, China Audio Industry Association
-        </div>
-        <div class="badge-group">
-            <a href="https://scholar.google.com/citations?user=KQmsqeQAAAAJ" target="_blank" class="badge-link"><i class="fab fa-google"></i> Google Scholar · 473 citations</a>
-            <span class="badge-link"><i class="fas fa-chart-line"></i> h-index: 12</span>
-            <span class="badge-link"><i class="fas fa-chart-simple"></i> i10-index: 14</span>
-            <a href="mailto:zhu.mengyao@suda.edu.cn" class="badge-link"><i class="fas fa-envelope"></i> zhu.mengyao@suda.edu.cn</a>
-        </div>
-        <div class="research-tagline">
-            <i class="fas fa-robot" style="margin-right: 8px;"></i> Researcher in <strong>Acoustics & Audio AI + Embodied Intelligence</strong> — spatial audio, speech enhancement, microphone array processing, and audio coding, enables embodied agents (e.g., robots, autonomous vehicles, virtual humans) to achieve closed-loop auditory perception, spatial reasoning, and interactive decision-making in physical or virtual environments.
+<main class="container">
+    <div class="topbar">
+        <div class="language-toggle" aria-label="Language">
+            <button type="button" data-lang-option="zh" aria-pressed="false">中文</button>
+            <button type="button" data-lang-option="en" aria-pressed="true">EN</button>
         </div>
     </div>
 
-    <!-- 经历 Experience -->
-    <div class="section">
-        <div class="section-title"><i class="fas fa-briefcase"></i> Experience</div>
-        <div class="timeline-item">
-            <div class="exp-year">2026.4 – Present</div>
-            <div class="exp-desc"><span class="exp-title">Professor</span><br>School of Future Science & Engineering, Soochow University</div>
+    <section class="hero" aria-labelledby="page-title">
+        <div class="hero-grid">
+            <div>
+                <div class="eyebrow"><i class="fas fa-wave-square"></i><span data-i18n="hero.eyebrow">Acoustics · Audio AI · Embodied Intelligence</span></div>
+                <h1 id="page-title">Mengyao Zhu · 朱梦尧</h1>
+                <div class="subhead" data-i18n="hero.role">Professor · School of Future Science & Engineering, Soochow University</div>
+                <div class="affiliations">
+                    <span><i class="fas fa-microphone-alt"></i><span data-i18n="hero.uwa">Co-Chair · Audio Standards Working Group, UHD World Alliance (UWA)</span></span>
+                    <span><i class="fas fa-music"></i><span data-i18n="hero.caia">Deputy Director · Sound and Music Technology Committee, China Audio Industry Association</span></span>
+                </div>
+                <p class="research-tagline" data-i18n="hero.tagline">Researcher in acoustics, audio AI, and embodied intelligence, working on spatial audio, speech enhancement, microphone array processing, and audio coding for closed-loop auditory perception, spatial reasoning, and interactive decision-making in robots, autonomous vehicles, virtual humans, and other physical or virtual agents.</p>
+                <div class="badge-group" aria-label="Profile links">
+                    <a href="https://scholar.google.com/citations?user=KQmsqeQAAAAJ" target="_blank" rel="noopener" class="badge-link"><i class="fab fa-google"></i><span data-i18n="badge.scholar">Google Scholar</span></a>
+                    <a href="https://web.suda.edu.cn/zmy2/" target="_blank" rel="noopener" class="badge-link"><i class="fas fa-university"></i><span data-i18n="badge.official">suda webpage</span></a>
+                    <a href="mailto:zhu.mengyao@suda.edu.cn" class="badge-link"><i class="fas fa-envelope"></i>zhu.mengyao@suda.edu.cn</a>
+                </div>
+            </div>
         </div>
-        <div class="timeline-item">
-            <div class="exp-year">2019.5 – 2026.3</div>
-            <div class="exp-desc"><span class="exp-title">Research Scientist — Intelligent Acoustics & Audio</span><br>Huawei Technologies</div>
-        </div>
-        <div class="timeline-item">
-            <div class="exp-year">2011.7 – 2019.4</div>
-            <div class="exp-desc"><span class="exp-title">Associate Professor</span><br>School of Communication & Information Engineering, Shanghai University</div>
-        </div>
-        <div class="timeline-item">
-            <div class="exp-year">2009.7 – 2011.6</div>
-            <div class="exp-desc"><span class="exp-title">Lecturer</span><br>School of Communication & Information Engineering, Shanghai University</div>
-        </div>
-        <div class="timeline-item">
-            <div class="exp-year">2004.9 – 2009.6</div>
-            <div class="exp-desc"><span class="exp-title">Ph.D. — Communication & Information Systems</span><br>Zhejiang University</div>
-        </div>
-    </div>
+    </section>
 
-    <!-- 研究领域 Research Areas -->
-    <div class="section">
-        <div class="section-title"><i class="fas fa-microscope"></i> Research Areas</div>
+    <section class="section" aria-labelledby="experience-title">
+        <h2 class="section-title" id="experience-title"><i class="fas fa-briefcase"></i><span data-i18n="section.experience">Experience</span></h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="exp-year">2026.4 - Present</div>
+                <div><span class="exp-title" data-i18n="exp.suda.title">Professor</span><span class="exp-org" data-i18n="exp.suda.org">School of Future Science & Engineering, Soochow University</span></div>
+            </div>
+            <div class="timeline-item">
+                <div class="exp-year">2019.5 - 2026.3</div>
+                <div><span class="exp-title" data-i18n="exp.huawei.title">Research Scientist - Intelligent Acoustics & Audio</span><span class="exp-org" data-i18n="exp.huawei.org">Huawei Technologies</span></div>
+            </div>
+            <div class="timeline-item">
+                <div class="exp-year">2011.7 - 2019.4</div>
+                <div><span class="exp-title" data-i18n="exp.shu.assoc.title">Associate Professor</span><span class="exp-org" data-i18n="exp.shu.org">School of Communication & Information Engineering, Shanghai University</span></div>
+            </div>
+            <div class="timeline-item">
+                <div class="exp-year">2009.7 - 2011.6</div>
+                <div><span class="exp-title" data-i18n="exp.shu.lecturer.title">Lecturer</span><span class="exp-org" data-i18n="exp.shu.org">School of Communication & Information Engineering, Shanghai University</span></div>
+            </div>
+            <div class="timeline-item">
+                <div class="exp-year">2004.9 - 2009.6</div>
+                <div><span class="exp-title" data-i18n="exp.phd.title">Ph.D. - Communication & Information Systems</span><span class="exp-org" data-i18n="exp.phd.org">Zhejiang University</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" aria-labelledby="research-title">
+        <h2 class="section-title" id="research-title"><i class="fas fa-microscope"></i><span data-i18n="section.research">Research Areas</span></h2>
         <div class="research-grid">
-            <div class="research-card"><h3><span>🎧</span> Spatial Audio & Binaural Rendering</h3><p>HRTF-based virtual audio, 3D sound rendering, multizone reproduction, room acoustics</p></div>
-            <div class="research-card"><h3><span>🎙️</span> Speech & Audio Enhancement</h3><p>Voice activity detection, speech enhancement, audio packet loss concealment, quality assessment</p></div>
-            <div class="research-card"><h3><span>📡</span> Microphone Array Processing</h3><p>Beamforming, DOA estimation, TDOA-based localization, acoustic vector sensors</p></div>
-            <div class="research-card"><h3><span>🤖</span> AI for Computational Audition</h3><p>Deep learning for audio, end-to-end speech models, keyword spotting, speaker verification</p></div>
-            <div class="research-card"><h3><span>💾</span> Audio Coding & MDCT</h3><p>Frequency estimation in MDCT domain, audio codec algorithms, IC design for multimedia</p></div>
-            <div class="research-card"><h3><span>🖥️</span> GPU & FPGA Acceleration</h3><p>High-performance computing, graphics rasterization, real-time rendering</p></div>
+            <article class="research-card">
+                <h3><i class="fas fa-headphones"></i><span data-i18n="research.spatial.title">Spatial Audio & Binaural Rendering</span></h3>
+                <p data-i18n="research.spatial.desc">HRTF-based virtual audio, 3D sound rendering, multizone reproduction, room acoustics.</p>
+            </article>
+            <article class="research-card">
+                <h3><i class="fas fa-volume-high"></i><span data-i18n="research.enhance.title">Speech & Audio Enhancement</span></h3>
+                <p data-i18n="research.enhance.desc">Voice activity detection, speech enhancement, residual echo suppression, packet loss concealment, and quality assessment.</p>
+            </article>
+            <article class="research-card">
+                <h3><i class="fas fa-satellite-dish"></i><span data-i18n="research.array.title">Microphone Array Processing</span></h3>
+                <p data-i18n="research.array.desc">Beamforming, DOA estimation, TDOA-based localization, acoustic vector sensors, and spherical microphone arrays.</p>
+            </article>
+            <article class="research-card">
+                <h3><i class="fas fa-brain"></i><span data-i18n="research.ai.title">AI for Computational Audition</span></h3>
+                <p data-i18n="research.ai.desc">Deep learning for audio, end-to-end speech models, keyword spotting, speaker verification, and auditory scene understanding.</p>
+            </article>
+            <article class="research-card">
+                <h3><i class="fas fa-compact-disc"></i><span data-i18n="research.coding.title">Audio Coding & MDCT</span></h3>
+                <p data-i18n="research.coding.desc">Frequency estimation in the MDCT domain, audio codec algorithms, and multimedia IC design.</p>
+            </article>
+            <article class="research-card">
+                <h3><i class="fas fa-microchip"></i><span data-i18n="research.hardware.title">GPU & FPGA Acceleration</span></h3>
+                <p data-i18n="research.hardware.desc">High-performance computing, graphics rasterization, real-time rendering, and hardware-aware signal processing.</p>
+            </article>
         </div>
-    </div>
+    </section>
 
-    <!-- 精选出版物 Selected Publications -->
-    <div class="section">
-        <div class="section-title"><i class="fas fa-book-open"></i> Selected Publications</div>
-        <div style="margin-bottom: 0.8rem; font-size: 0.9rem;"><a href="https://scholar.google.com/citations?user=KQmsqeQAAAAJ" target="_blank" style="color:#2b4c7c;"><i class="fas fa-external-link-alt"></i> Full list → Google Scholar</a></div>
+    <section class="section" aria-labelledby="publications-title">
+        <h2 class="section-title" id="publications-title"><i class="fas fa-book-open"></i><span data-i18n="section.publications">Selected Publications</span></h2>
+        <p class="source-note">
+            <i class="fas fa-info-circle"></i>
+            <span><span data-i18n="pub.note">Citation data refreshed from Google Scholar on June 17, 2026.</span> <a href="https://scholar.google.com/citations?user=KQmsqeQAAAAJ" target="_blank" rel="noopener" data-i18n="pub.fullList">Full list on Google Scholar</a></span>
+        </p>
         <div class="publication-list">
-            <!-- 严格按照MD内容逐一呈现 -->
-            <div class="pub-item"><div class="pub-meta">CAVW 2024</div><div class="pub-title">TMSDNet: Transformer with Multi-Scale Dense Network for Single and Multi-View 3D Reconstruction.</div><div class="pub-authors">X Zhu, X Yao, J Zhang, M Zhu, L You, X Yang, J Zhang, H Zhao, D Zeng.</div><div class="pub-venue">Computer Animation and Virtual Worlds, 35(1), e2201.</div><div class="pub-cite"><i class="fas fa-quote-left"></i> cited: 101</div></div>
-            <div class="pub-item"><div class="pub-meta">EAAI 2017</div><div class="pub-title">Traffic Flow Estimation Using Acoustic Signal.</div><div class="pub-authors">N Lefebvre, X Chen, P Beauseroy, MY Zhu.</div><div class="pub-venue">Engineering Applications of Artificial Intelligence, 64, 164–171.</div><div class="pub-cite"><i class="fas fa-quote-left"></i> cited: 34</div></div>
-            <div class="pub-item"><div class="pub-meta">MTA 2018</div><div class="pub-title">Gaussian Filter for TDOA Based Sound Source Localization in Multimedia Surveillance.</div><div class="pub-authors">M Zhu, H Yao, X Wu, Z Lu, X Zhu, Q Huang.</div><div class="pub-venue">Multimedia Tools and Applications, 77(3), 3369–3385.</div><div class="pub-cite"><i class="fas fa-quote-left"></i> cited: 21</div></div>
-            <div class="pub-item"><div class="pub-meta">CAVW 2017</div><div class="pub-title">Brush2Model: Convolution Surface-Based Brushes for 3D Modelling in Head-Mounted Display-Based Virtual Environments.</div><div class="pub-authors">X Zhu, L Song, L You, M Zhu, X Wang, X Jin.</div><div class="pub-venue">Computer Animation and Virtual Worlds, 28(3–4), e1764.</div><div class="pub-cite"><i class="fas fa-quote-left"></i> cited: 20</div></div>
-            <div class="pub-item"><div class="pub-meta">IEEE TCE 2008</div><div class="pub-title">An Accurate Low Complexity Algorithm for Frequency Estimation in MDCT Domain.</div><div class="pub-authors">MY Zhu, W Zheng, DX Li, M Zhang.</div><div class="pub-venue">IEEE Transactions on Consumer Electronics, 54(3), 1022–1028.</div><div class="pub-cite"><i class="fas fa-quote-left"></i> cited: 17</div></div>
-            <div class="pub-item"><div class="pub-meta">IEEE/ACM TASLP 2023</div><div class="pub-title">Design of Maximum Directivity Beamformers with Linear Acoustic Vector Sensor Arrays.</div><div class="pub-authors">X Luo, G Huang, J Jin, J Chen, J Benesty, W Zhang, M Zhu, C Li.</div><div class="pub-venue">IEEE/ACM Transactions on Audio, Speech, and Language Processing, 31, 1421–1435.</div><div class="pub-cite"><i class="fas fa-quote-left"></i> cited: 16</div></div>
-            <div class="pub-item"><div class="pub-meta">IEEE TCSII 2016</div><div class="pub-title">An Optimized Logarithmic Converter with Equal Distribution of Relative Errors.</div><div class="pub-authors">M Zhu, Y Ha, C Gu, L Gao.</div><div class="pub-venue">IEEE Transactions on Circuits and Systems II: Express Briefs, 63(9), 848–852.</div><div class="pub-cite"><i class="fas fa-quote-left"></i> cited: 15</div></div>
-            <div class="pub-item"><div class="pub-meta">DSP 2019</div><div class="pub-title">Long-term Speech Information Based Threshold for Voice Activity Detection in Massive Microphone Network.</div><div class="pub-authors">M Zhu, X Wu, Z Lu, T Wang, X Zhu.</div><div class="pub-venue">Digital Signal Processing, 94, 156–164.</div><div class="pub-cite"><i class="fas fa-quote-left"></i> cited: 9</div></div>
-            <div class="pub-item"><div class="pub-meta">IEEE TCE 2010</div><div class="pub-title">Streaming Audio Packet Loss Concealment Based on Sinusoidal Frequency Estimation in MDCT Domain.</div><div class="pub-authors">MY Zhu, M Zhang, XQ Yu, WG Wan.</div><div class="pub-venue">IEEE Transactions on Consumer Electronics, 56(2), 811–819.</div><div class="pub-cite"><i class="fas fa-quote-left"></i> cited: 12</div></div>
-            <div class="pub-item"><div class="pub-meta">arXiv 2019</div><div class="pub-title">End-to-End Model for Speech Enhancement by Consistent Spectrogram Masking.</div><div class="pub-authors">X Du, M Zhu, X Shi, X Zhang, W Zhang, J Chen.</div><div class="pub-venue">arXiv:1901.00295.</div><div class="pub-cite"><i class="fas fa-quote-left"></i> cited: 8</div></div>
-            <div class="pub-item"><div class="pub-meta">IEEE SPL 2024</div><div class="pub-title">Multi-source DOA Estimation Using Higher-order Pseudo Intensity Vector.</div><div class="pub-authors">B Zhu, W Zhang, J Chen, M Zhu, C Li.</div><div class="pub-venue">IEEE Signal Processing Letters, 31, 1935–1939.</div><div class="pub-cite"><i class="fas fa-quote-left"></i> cited: 3</div></div>
+            <article class="pub-item">
+                <div class="pub-topline"><span class="pub-meta">IEEE TASLP 2025</span><span class="pub-cite"><span data-i18n="pub.cited">cited</span>: 1</span></div>
+                <div class="pub-title">Residual Echo Suppression Using Dual-Stream Interactive Transformers With Selective Multi-Scale Encoding.</div>
+                <div class="pub-authors">K Xie, Z Yang, J Chen, M Zhu.</div>
+                <div class="pub-venue">IEEE Transactions on Audio, Speech and Language Processing, 2025.</div>
+            </article>
+            <article class="pub-item">
+                <div class="pub-topline"><span class="pub-meta">EURASIP JASMP 2024</span><span class="pub-cite"><span data-i18n="pub.cited">cited</span>: 4</span></div>
+                <div class="pub-title">Guest editorial: AI for computational audition - sound and music processing.</div>
+                <div class="pub-authors">Z Li, W Wang, K Zhang, M Zhu.</div>
+                <div class="pub-venue">EURASIP Journal on Audio, Speech, and Music Processing, 2024(1), 44.</div>
+            </article>
+            <article class="pub-item">
+                <div class="pub-topline"><span class="pub-meta">CAVW 2024</span><span class="pub-cite"><span data-i18n="pub.cited">cited</span>: 113</span></div>
+                <div class="pub-title">TMSDNet: Transformer with Multi-Scale Dense Network for Single and Multi-View 3D Reconstruction.</div>
+                <div class="pub-authors">X Zhu, X Yao, J Zhang, M Zhu, L You, X Yang, J Zhang, H Zhao, D Zeng.</div>
+                <div class="pub-venue">Computer Animation and Virtual Worlds, 35(1), e2201.</div>
+            </article>
+            <article class="pub-item">
+                <div class="pub-topline"><span class="pub-meta">IEEE SPL 2024</span><span class="pub-cite"><span data-i18n="pub.cited">cited</span>: 3</span></div>
+                <div class="pub-title">Multi-source DOA Estimation Using Higher-order Pseudo Intensity Vector on a Spherical Microphone Array.</div>
+                <div class="pub-authors">B Zhu, W Zhang, J Chen, M Zhu, C Li.</div>
+                <div class="pub-venue">IEEE Signal Processing Letters, 31, 1935-1939.</div>
+            </article>
+            <article class="pub-item">
+                <div class="pub-topline"><span class="pub-meta">IEEE/ACM TASLP 2023</span><span class="pub-cite"><span data-i18n="pub.cited">cited</span>: 16</span></div>
+                <div class="pub-title">Design of Maximum Directivity Beamformers with Linear Acoustic Vector Sensor Arrays.</div>
+                <div class="pub-authors">X Luo, G Huang, J Jin, J Chen, J Benesty, W Zhang, M Zhu, C Li.</div>
+                <div class="pub-venue">IEEE/ACM Transactions on Audio, Speech, and Language Processing, 31, 1421-1435.</div>
+            </article>
+            <article class="pub-item">
+                <div class="pub-topline"><span class="pub-meta">EAAI 2017</span><span class="pub-cite"><span data-i18n="pub.cited">cited</span>: 34</span></div>
+                <div class="pub-title">Traffic Flow Estimation Using Acoustic Signal.</div>
+                <div class="pub-authors">N Lefebvre, X Chen, P Beauseroy, MY Zhu.</div>
+                <div class="pub-venue">Engineering Applications of Artificial Intelligence, 64, 164-171.</div>
+            </article>
+            <article class="pub-item">
+                <div class="pub-topline"><span class="pub-meta">SCN 2017</span><span class="pub-cite"><span data-i18n="pub.cited">cited</span>: 22</span></div>
+                <div class="pub-title">An Improved Privacy-Preserving Framework for Location-Based Services Based on Double Cloaking Regions with Supplementary Information Constraints.</div>
+                <div class="pub-authors">L Kuang, Y Wang, P Ma, L Yu, C Li, L Huang, M Zhu.</div>
+                <div class="pub-venue">Security and Communication Networks, 2017(1), 7495974.</div>
+            </article>
+            <article class="pub-item">
+                <div class="pub-topline"><span class="pub-meta">MTA 2018</span><span class="pub-cite"><span data-i18n="pub.cited">cited</span>: 21</span></div>
+                <div class="pub-title">Gaussian Filter for TDOA Based Sound Source Localization in Multimedia Surveillance.</div>
+                <div class="pub-authors">M Zhu, H Yao, X Wu, Z Lu, X Zhu, Q Huang.</div>
+                <div class="pub-venue">Multimedia Tools and Applications, 77(3), 3369-3385.</div>
+            </article>
+            <article class="pub-item">
+                <div class="pub-topline"><span class="pub-meta">CAVW 2017</span><span class="pub-cite"><span data-i18n="pub.cited">cited</span>: 20</span></div>
+                <div class="pub-title">Brush2Model: Convolution Surface-Based Brushes for 3D Modelling in Head-Mounted Display-Based Virtual Environments.</div>
+                <div class="pub-authors">X Zhu, L Song, L You, M Zhu, X Wang, X Jin.</div>
+                <div class="pub-venue">Computer Animation and Virtual Worlds, 28(3-4), e1764.</div>
+            </article>
+            <article class="pub-item">
+                <div class="pub-topline"><span class="pub-meta">IEEE TCE 2008</span><span class="pub-cite"><span data-i18n="pub.cited">cited</span>: 17</span></div>
+                <div class="pub-title">An Accurate Low Complexity Algorithm for Frequency Estimation in MDCT Domain.</div>
+                <div class="pub-authors">MY Zhu, W Zheng, DX Li, M Zhang.</div>
+                <div class="pub-venue">IEEE Transactions on Consumer Electronics, 54(3), 1022-1028.</div>
+            </article>
+            <article class="pub-item">
+                <div class="pub-topline"><span class="pub-meta">IEEE TCSII 2016</span><span class="pub-cite"><span data-i18n="pub.cited">cited</span>: 16</span></div>
+                <div class="pub-title">An Optimized Logarithmic Converter with Equal Distribution of Relative Errors.</div>
+                <div class="pub-authors">M Zhu, Y Ha, C Gu, L Gao.</div>
+                <div class="pub-venue">IEEE Transactions on Circuits and Systems II: Express Briefs, 63(9), 848-852.</div>
+            </article>
+            <article class="pub-item">
+                <div class="pub-topline"><span class="pub-meta">DSP 2019</span><span class="pub-cite"><span data-i18n="pub.cited">cited</span>: 9</span></div>
+                <div class="pub-title">Long-term Speech Information Based Threshold for Voice Activity Detection in Massive Microphone Network.</div>
+                <div class="pub-authors">M Zhu, X Wu, Z Lu, T Wang, X Zhu.</div>
+                <div class="pub-venue">Digital Signal Processing, 94, 156-164.</div>
+            </article>
+            <article class="pub-item">
+                <div class="pub-topline"><span class="pub-meta">arXiv 2019</span><span class="pub-cite"><span data-i18n="pub.cited">cited</span>: 8</span></div>
+                <div class="pub-title">End-to-End Model for Speech Enhancement by Consistent Spectrogram Masking.</div>
+                <div class="pub-authors">X Du, M Zhu, X Shi, X Zhang, W Zhang, J Chen.</div>
+                <div class="pub-venue">arXiv:1901.00295.</div>
+            </article>
         </div>
-    </div>
+    </section>
 
-    <!-- 技术技能 Technical Skills -->
-    <div class="section">
-        <div class="section-title"><i class="fas fa-code"></i> Technical Skills</div>
+    <section class="section" aria-labelledby="skills-title">
+        <h2 class="section-title" id="skills-title"><i class="fas fa-code"></i><span data-i18n="section.skills">Technical Skills</span></h2>
         <div class="skills-block">
             <div class="skill-category">
-                <h4><i class="fas fa-head-side-headphones"></i> Audio & Acoustics</h4>
+                <h4><i class="fas fa-headphones"></i><span data-i18n="skills.audio">Audio & Acoustics</span></h4>
                 <div class="skill-tags">
-                    <span class="skill-tag">Spatial Audio</span><span class="skill-tag">Binaural Rendering</span><span class="skill-tag">HRTF</span>
-                    <span class="skill-tag">Beamforming</span><span class="skill-tag">DOA Estimation</span><span class="skill-tag">VAD</span>
-                    <span class="skill-tag">Audio Coding</span><span class="skill-tag">MDCT</span><span class="skill-tag">Room Acoustics</span>
+                    <span class="skill-tag" data-i18n="tag.spatial">Spatial Audio</span><span class="skill-tag" data-i18n="tag.binaural">Binaural Rendering</span><span class="skill-tag">HRTF</span>
+                    <span class="skill-tag" data-i18n="tag.beamforming">Beamforming</span><span class="skill-tag">DOA</span><span class="skill-tag">VAD</span>
+                    <span class="skill-tag" data-i18n="tag.audioCoding">Audio Coding</span><span class="skill-tag">MDCT</span><span class="skill-tag" data-i18n="tag.room">Room Acoustics</span>
                 </div>
             </div>
             <div class="skill-category">
-                <h4><i class="fas fa-brain"></i> AI & Signal Processing</h4>
+                <h4><i class="fas fa-brain"></i><span data-i18n="skills.ai">AI & Signal Processing</span></h4>
                 <div class="skill-tags">
-                    <span class="skill-tag">Deep Learning</span><span class="skill-tag">Speech Enhancement</span><span class="skill-tag">Speaker Verification</span>
-                    <span class="skill-tag">Keyword Spotting</span><span class="skill-tag">Array Signal Processing</span><span class="skill-tag">TDOA</span>
+                    <span class="skill-tag" data-i18n="tag.deepLearning">Deep Learning</span><span class="skill-tag" data-i18n="tag.speechEnhancement">Speech Enhancement</span><span class="skill-tag" data-i18n="tag.speakerVerification">Speaker Verification</span>
+                    <span class="skill-tag" data-i18n="tag.keyword">Keyword Spotting</span><span class="skill-tag" data-i18n="tag.array">Array Signal Processing</span><span class="skill-tag">TDOA</span>
                 </div>
             </div>
             <div class="skill-category">
-                <h4><i class="fas fa-microchip"></i> Hardware & Computing</h4>
+                <h4><i class="fas fa-microchip"></i><span data-i18n="skills.hardware">Hardware & Computing</span></h4>
                 <div class="skill-tags">
-                    <span class="skill-tag">FPGA</span><span class="skill-tag">IC Design</span><span class="skill-tag">GPU Computing</span>
-                    <span class="skill-tag">3D Rendering</span><span class="skill-tag">VR/AR Audio</span>
+                    <span class="skill-tag">FPGA</span><span class="skill-tag" data-i18n="tag.ic">IC Design</span><span class="skill-tag" data-i18n="tag.gpu">GPU Computing</span>
+                    <span class="skill-tag" data-i18n="tag.rendering">3D Rendering</span><span class="skill-tag" data-i18n="tag.vrar">VR/AR Audio</span>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- 联系信息 Contact -->
-    <div class="section">
-        <div class="section-title"><i class="fas fa-address-card"></i> Contact</div>
+    <section class="section" aria-labelledby="contact-title">
+        <h2 class="section-title" id="contact-title"><i class="fas fa-address-card"></i><span data-i18n="section.contact">Contact</span></h2>
         <div class="contact-info">
-            <div class="contact-detail"><i class="fas fa-university"></i> Soochow University · School of Future Science & Engineering · Suzhou, China</div>
-            <div class="contact-detail"><i class="fas fa-envelope"></i> <a href="mailto:zhu.mengyao@suda.edu.cn">zhu.mengyao@suda.edu.cn</a></div>
-            <div class="contact-detail"><i class="fab fa-google"></i> <a href="https://scholar.google.com/citations?user=KQmsqeQAAAAJ" target="_blank">Google Scholar: KQmsqeQAAAAJ</a></div>
+            <div class="contact-detail"><i class="fas fa-university"></i><span data-i18n="contact.address">Soochow University · School of Future Science & Engineering · Suzhou, China</span></div>
+            <div class="contact-detail"><i class="fas fa-envelope"></i><a href="mailto:zhu.mengyao@suda.edu.cn">zhu.mengyao@suda.edu.cn</a></div>
+            <div class="contact-detail"><i class="fas fa-university"></i><a href="https://web.suda.edu.cn/zmy2/" target="_blank" rel="noopener" data-i18n="contact.official">suda webpage</a></div>
         </div>
-    </div>
+    </section>
 
-    <div class="footer-note">
-        <i class="far fa-calendar-alt"></i> Last updated: April 2026
-    </div>
-</div>
+    <footer class="footer-note">
+        <i class="far fa-calendar-alt"></i> <span data-i18n="footer.updated">Last updated: June 18, 2026</span>
+    </footer>
+</main>
+
+<script>
+    const translations = {
+        en: {
+            "meta.title": "Mengyao Zhu · 朱梦尧 | Academic Homepage",
+            "meta.description": "Mengyao Zhu (朱梦尧) - Professor at Soochow University, specializing in spatial audio, speech enhancement, microphone array processing, audio coding, and audio AI.",
+            "hero.eyebrow": "Acoustics · Audio AI · Embodied Intelligence",
+            "hero.role": "Professor · School of Future Science & Engineering, Soochow University",
+            "hero.uwa": "Co-Chair · Audio Standards Working Group, UHD World Alliance (UWA)",
+            "hero.caia": "Deputy Director · Sound and Music Technology Committee, China Audio Industry Association",
+            "hero.tagline": "Researcher in acoustics, audio AI, and embodied intelligence, working on spatial audio, speech enhancement, microphone array processing, and audio coding for closed-loop auditory perception, spatial reasoning, and interactive decision-making in robots, autonomous vehicles, virtual humans, and other physical or virtual agents.",
+            "badge.scholar": "Google Scholar",
+            "badge.official": "suda webpage",
+            "section.experience": "Experience",
+            "exp.suda.title": "Professor",
+            "exp.suda.org": "School of Future Science & Engineering, Soochow University",
+            "exp.huawei.title": "Research Scientist - Intelligent Acoustics & Audio",
+            "exp.huawei.org": "Huawei Technologies",
+            "exp.shu.assoc.title": "Associate Professor",
+            "exp.shu.lecturer.title": "Lecturer",
+            "exp.shu.org": "School of Communication & Information Engineering, Shanghai University",
+            "exp.phd.title": "Ph.D. - Communication & Information Systems",
+            "exp.phd.org": "Zhejiang University",
+            "section.research": "Research Areas",
+            "research.spatial.title": "Spatial Audio & Binaural Rendering",
+            "research.spatial.desc": "HRTF-based virtual audio, 3D sound rendering, multizone reproduction, room acoustics.",
+            "research.enhance.title": "Speech & Audio Enhancement",
+            "research.enhance.desc": "Voice activity detection, speech enhancement, residual echo suppression, packet loss concealment, and quality assessment.",
+            "research.array.title": "Microphone Array Processing",
+            "research.array.desc": "Beamforming, DOA estimation, TDOA-based localization, acoustic vector sensors, and spherical microphone arrays.",
+            "research.ai.title": "AI for Computational Audition",
+            "research.ai.desc": "Deep learning for audio, end-to-end speech models, keyword spotting, speaker verification, and auditory scene understanding.",
+            "research.coding.title": "Audio Coding & MDCT",
+            "research.coding.desc": "Frequency estimation in the MDCT domain, audio codec algorithms, and multimedia IC design.",
+            "research.hardware.title": "GPU & FPGA Acceleration",
+            "research.hardware.desc": "High-performance computing, graphics rasterization, real-time rendering, and hardware-aware signal processing.",
+            "section.publications": "Selected Publications",
+            "pub.note": "Citation data refreshed from Google Scholar on June 17, 2026.",
+            "pub.fullList": "Full list on Google Scholar",
+            "pub.cited": "cited",
+            "section.skills": "Technical Skills",
+            "skills.audio": "Audio & Acoustics",
+            "skills.ai": "AI & Signal Processing",
+            "skills.hardware": "Hardware & Computing",
+            "tag.spatial": "Spatial Audio",
+            "tag.binaural": "Binaural Rendering",
+            "tag.beamforming": "Beamforming",
+            "tag.audioCoding": "Audio Coding",
+            "tag.room": "Room Acoustics",
+            "tag.deepLearning": "Deep Learning",
+            "tag.speechEnhancement": "Speech Enhancement",
+            "tag.speakerVerification": "Speaker Verification",
+            "tag.keyword": "Keyword Spotting",
+            "tag.array": "Array Signal Processing",
+            "tag.ic": "IC Design",
+            "tag.gpu": "GPU Computing",
+            "tag.rendering": "3D Rendering",
+            "tag.vrar": "VR/AR Audio",
+            "section.contact": "Contact",
+            "contact.address": "Soochow University · School of Future Science & Engineering · Suzhou, China",
+            "contact.official": "suda webpage",
+            "footer.updated": "Last updated: June 18, 2026"
+        },
+        zh: {
+            "meta.title": "朱梦尧 · Mengyao Zhu | 学术主页",
+            "meta.description": "朱梦尧，苏州大学未来科学与工程学院教授，研究方向包括空间音频、语音增强、麦克风阵列处理、音频编解码与音频人工智能。",
+            "hero.eyebrow": "声学 · 音频人工智能 · 具身智能",
+            "hero.role": "教授 · 苏州大学未来科学与工程学院",
+            "hero.uwa": "世界超高清视频产业联盟（UWA）音频标准工作组联合组长",
+            "hero.caia": "中国电子音响行业协会声学与音乐技术委员会副主任",
+            "hero.tagline": "聚焦声学、音频人工智能与具身智能，围绕空间音频、语音增强、麦克风阵列处理和音频编解码开展研究，面向机器人、自动驾驶、虚拟人等物理或虚拟智能体构建闭环听觉感知、空间推理与交互决策能力。",
+            "badge.scholar": "Google Scholar",
+            "badge.official": "苏大官方主页",
+            "section.experience": "工作与教育经历",
+            "exp.suda.title": "教授",
+            "exp.suda.org": "苏州大学未来科学与工程学院",
+            "exp.huawei.title": "研究科学家 - 智能声学与音频",
+            "exp.huawei.org": "华为技术有限公司",
+            "exp.shu.assoc.title": "副教授",
+            "exp.shu.lecturer.title": "讲师",
+            "exp.shu.org": "上海大学通信与信息工程学院",
+            "exp.phd.title": "博士 - 通信与信息系统",
+            "exp.phd.org": "浙江大学",
+            "section.research": "研究方向",
+            "research.spatial.title": "空间音频与双耳渲染",
+            "research.spatial.desc": "基于 HRTF 的虚拟音频、三维声音渲染、多区域声重放与室内声学。",
+            "research.enhance.title": "语音与音频增强",
+            "research.enhance.desc": "语音活动检测、语音增强、残余回声抑制、音频丢包隐藏与质量评价。",
+            "research.array.title": "麦克风阵列处理",
+            "research.array.desc": "波束形成、DOA 估计、基于 TDOA 的定位、声矢量传感器与球形麦克风阵列。",
+            "research.ai.title": "计算听觉人工智能",
+            "research.ai.desc": "面向音频的深度学习、端到端语音模型、关键词检出、说话人验证与听觉场景理解。",
+            "research.coding.title": "音频编解码与 MDCT",
+            "research.coding.desc": "MDCT 域频率估计、音频编解码算法与多媒体集成电路设计。",
+            "research.hardware.title": "GPU 与 FPGA 加速",
+            "research.hardware.desc": "高性能计算、图形光栅化、实时渲染与面向硬件的信号处理。",
+            "section.publications": "代表性论文",
+            "pub.note": "引用数据已于 2026 年 6 月 17 日根据 Google Scholar 刷新。",
+            "pub.fullList": "在 Google Scholar 查看完整列表",
+            "pub.cited": "引用",
+            "section.skills": "技术专长",
+            "skills.audio": "音频与声学",
+            "skills.ai": "人工智能与信号处理",
+            "skills.hardware": "硬件与计算",
+            "tag.spatial": "空间音频",
+            "tag.binaural": "双耳渲染",
+            "tag.beamforming": "波束形成",
+            "tag.audioCoding": "音频编解码",
+            "tag.room": "室内声学",
+            "tag.deepLearning": "深度学习",
+            "tag.speechEnhancement": "语音增强",
+            "tag.speakerVerification": "说话人验证",
+            "tag.keyword": "关键词检出",
+            "tag.array": "阵列信号处理",
+            "tag.ic": "集成电路设计",
+            "tag.gpu": "GPU 计算",
+            "tag.rendering": "三维渲染",
+            "tag.vrar": "VR/AR 音频",
+            "section.contact": "联系方式",
+            "contact.address": "苏州大学 · 未来科学与工程学院 · 中国苏州",
+            "contact.official": "苏州大学个人主页",
+            "footer.updated": "最后更新：2026 年 6 月 18 日"
+        }
+    };
+
+    const setLanguage = (lang) => {
+        const activeLang = translations[lang] ? lang : "en";
+        const copy = translations[activeLang];
+
+        document.documentElement.lang = activeLang === "zh" ? "zh-CN" : "en";
+        document.title = copy["meta.title"];
+        const description = document.querySelector('meta[name="description"]');
+        if (description) {
+            description.setAttribute("content", copy["meta.description"]);
+        }
+
+        document.querySelectorAll("[data-i18n]").forEach((node) => {
+            const key = node.getAttribute("data-i18n");
+            if (copy[key]) {
+                node.textContent = copy[key];
+            }
+        });
+
+        document.querySelectorAll("[data-lang-option]").forEach((button) => {
+            const selected = button.getAttribute("data-lang-option") === activeLang;
+            button.setAttribute("aria-pressed", selected ? "true" : "false");
+        });
+    };
+
+    document.querySelectorAll("[data-lang-option]").forEach((button) => {
+        button.addEventListener("click", () => setLanguage(button.getAttribute("data-lang-option")));
+    });
+
+    setLanguage("en");
+</script>
 </body>
 </html>
