@@ -3,6 +3,7 @@
 # Mengyao Zhu · 朱梦尧
 
 <h3>Professor · School of Future Science & Engineering, Soochow University</h3>
+Distinguished Member · China Computer Federation (CCF)<br>
 Co-Chair · Audio Standards Working Group, UHD World Alliance (UWA)<br>
 Deputy Director · Sound and Music Technology Committee, China Audio Industry Association
 
@@ -21,7 +22,7 @@ Academic homepage for Mengyao Zhu. The website is a static GitHub Pages page wit
 - Data sources:
   - [Google Scholar](https://scholar.google.com/citations?user=KQmsqeQAAAAJ)
   - [suda webpage](https://web.suda.edu.cn/zmy2/)
-- Last publication/citation refresh: June 17, 2026
+- Last publication/citation refresh: September 22, 2026
 - Chinese copy: translated and edited from the English homepage content, with publicly visible suda webpage information used for affiliation/name cross-checking.
 
 ## Experience
@@ -30,11 +31,16 @@ Academic homepage for Mengyao Zhu. The website is a static GitHub Pages page wit
 2026.4 - Present   Professor
                    School of Future Science & Engineering, Soochow University
 
-2019.5 - 2026.3    Research Scientist - Intelligent Acoustics & Audio
+CCF Distinguished Member
+
+2019.5 - 2026.3    Technical Expert - Intelligent Acoustics & Audio
                    Huawei Technologies
 
 2011.7 - 2019.4    Associate Professor
                    School of Communication & Information Engineering, Shanghai University
+
+2014.3 - 2015.3    Visiting Scholar
+                   The University of Sydney
 
 2009.7 - 2011.6    Lecturer
                    School of Communication & Information Engineering, Shanghai University
@@ -68,7 +74,7 @@ EURASIP Journal on Audio, Speech, and Music Processing, 2024(1), 44. `cited: 4`
 
 **[CAVW 2024]** X Zhu, X Yao, J Zhang, **M Zhu**, L You, X Yang, J Zhang, H Zhao, D Zeng.
 *TMSDNet: Transformer with Multi-Scale Dense Network for Single and Multi-View 3D Reconstruction.*
-Computer Animation and Virtual Worlds, 35(1), e2201. `cited: 113`
+Computer Animation and Virtual Worlds, 35(1), e2201. `cited: 118`
 
 **[IEEE SPL 2024]** B Zhu, W Zhang, J Chen, **M Zhu**, C Li.
 *Multi-source DOA Estimation Using Higher-order Pseudo Intensity Vector on a Spherical Microphone Array.*
@@ -100,11 +106,11 @@ IEEE Transactions on Consumer Electronics, 54(3), 1022-1028. `cited: 17`
 
 **[IEEE TCSII 2016]** **M Zhu**, Y Ha, C Gu, L Gao.
 *An Optimized Logarithmic Converter with Equal Distribution of Relative Errors.*
-IEEE Transactions on Circuits and Systems II: Express Briefs, 63(9), 848-852. `cited: 16`
+IEEE Transactions on Circuits and Systems II: Express Briefs, 63(9), 848-852. `cited: 18`
 
 **[DSP 2019]** **M Zhu**, X Wu, Z Lu, T Wang, X Zhu.
 *Long-term Speech Information Based Threshold for Voice Activity Detection in Massive Microphone Network.*
-Digital Signal Processing, 94, 156-164. `cited: 9`
+Digital Signal Processing, 94, 156-164. `cited: 10`
 
 **[arXiv 2019]** X Du, **M Zhu**, X Shi, X Zhang, W Zhang, J Chen.
 *End-to-End Model for Speech Enhancement by Consistent Spectrogram Masking.*
