@@ -4,6 +4,7 @@
 
 <h3>Professor · School of Future Science & Engineering, Soochow University</h3>
 Distinguished Member · China Computer Federation (CCF)<br>
+IEEE Senior Member<br>
 Co-Chair · Audio Standards Working Group, UHD World Alliance (UWA)<br>
 Deputy Director · Sound and Music Technology Committee, China Audio Industry Association
 
