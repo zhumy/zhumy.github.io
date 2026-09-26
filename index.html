@@ -135,6 +135,12 @@
             margin-bottom: 1.05rem;
         }
 
+        .membership-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+        }
+
         .affiliations span,
         .contact-detail {
             display: flex;
@@ -473,8 +479,10 @@
                 <h1 id="page-title">Mengyao Zhu · 朱梦尧</h1>
                 <div class="subhead" data-i18n="hero.role">Professor · School of Future Science & Engineering, Soochow University</div>
                 <div class="affiliations">
-                    <span><i class="fas fa-award"></i><span data-i18n="hero.ccf">Distinguished Member · China Computer Federation (CCF)</span></span>
-                    <span><i class="fas fa-award"></i><span data-i18n="hero.ieee">IEEE Senior Member</span></span>
+                    <div class="membership-row">
+                        <span><i class="fas fa-award"></i><span data-i18n="hero.ccf">Distinguished Member · China Computer Federation (CCF)</span></span>
+                        <span><i class="fas fa-award"></i><span data-i18n="hero.ieee">IEEE Senior Member</span></span>
+                    </div>
                     <span><i class="fas fa-microphone-alt"></i><span data-i18n="hero.uwa">Co-Chair · Audio Standards Working Group, UHD World Alliance (UWA)</span></span>
                     <span><i class="fas fa-music"></i><span data-i18n="hero.caia">Deputy Director · Sound and Music Technology Committee, China Audio Industry Association</span></span>
                 </div>
